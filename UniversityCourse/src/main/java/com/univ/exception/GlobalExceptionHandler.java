@@ -27,4 +27,21 @@ public class GlobalExceptionHandler {
 				new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
 		return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+		 // handling specific exception
+    @ExceptionHandler(StaffNotFoundException.class)
+    public ResponseEntity<?> resourceNotFoundHandling(StaffNotFoundException exception, WebRequest request){
+        ErrorDetails errorDetails = 
+                new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+    
+// handling global exception
+    
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> globalExceptionHandling(Exception exception, WebRequest request){
+        ErrorDetails errorDetails = 
+                new ErrorDetails(new Date(), exception.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
