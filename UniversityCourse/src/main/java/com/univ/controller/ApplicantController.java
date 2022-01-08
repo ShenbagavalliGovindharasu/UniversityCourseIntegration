@@ -26,6 +26,10 @@ public class ApplicantController {
 	@Autowired
 	private ApplicantDAO appdao;
 	
+	
+	@Autowired
+	public UpdateRepository updateRepository;
+	
 	//http://localhost:8093/applicant/Apply
 	@PostMapping("/Apply")
 	public String Apply() {
@@ -77,6 +81,30 @@ public class ApplicantController {
 			applicants = appdao.findById(applicantId).get();
 		}
 		return applicants;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/getapplicant_status")
+	public List<Applicant> getapplicant_status(){
+		List<Applicant> Applicant = updateRepository.getapplicant_status();
+		return Applicant;
+	}
+	
+	@GetMapping("/getAllApplicant")
+	public List<Applicant> getAllApplicant(){
+		return updateRepository.findAll();
+		
+	}
+	
+	@RequestMapping(value="/updateApplicant",method=RequestMethod.PUT)
+	public Applicant updateApplicant(@RequestBody Applicant applicant) {
+		return updateRepository.save(applicant);
+	}
+	
+	@GetMapping("/caughtException")
+	public Applicant getCaughtException(@RequestParam(value="number") Integer Num) {
+		return UpdateRepository.getCaughtException(Num);
 	}
 		
 }

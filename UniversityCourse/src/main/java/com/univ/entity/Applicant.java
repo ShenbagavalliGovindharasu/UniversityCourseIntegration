@@ -18,6 +18,8 @@ public class Applicant {
 	private String mobileNumber;
 	private String applicantDegree;
 	private int applicantGraduationPercent;
+	private String applicantStatus;
+	
 	public int getApplicantId() {
 		return applicantId;
 	}
@@ -41,6 +43,14 @@ public class Applicant {
 	}
 	public void setApplicantDegree(String applicantDegree) {
 		this.applicantDegree = applicantDegree;
+	}
+	public void setError(String string) {
+		System.out.println("Not Found");
+		
+	}
+	public void setStatus(int value) {
+		System.out.println("not found");
+		
 	}
 	public int getApplicantGraduationPercent() {
 		return applicantGraduationPercent;
