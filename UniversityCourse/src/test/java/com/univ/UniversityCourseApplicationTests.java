@@ -121,40 +121,7 @@ class UniversityCourseApplicationTests {
 			assertThat(course).isEmpty();
 		}
 	  
-//	  @Test
-//	  public void should_update_course_by_id() throws Exception {
-//		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-//			String dateInString1 = "2022-01-05 00:12:00";
-//			String dateInString2 = "2022-01-15 00:12:00";
-//			Date startdate = sdf.parse(dateInString2);
-//			Date enddate = sdf.parse(dateInString1);
-//	    Course tut1 = new Course("EEE", "30 minutes",startdate, enddate,"500");
-//	    entityManager.persist(tut1);
-//	    Course tut2 = new Course("EEE", "30 minutes",startdate, enddate,"800");
-//	    entityManager.persist(tut1);
-//
-//	    Course updatedTut = new Course("Mech", "40 minutes",startdate, enddate,"700");
-//
-//	    Course tut = crepo.findById(tut2.getId()).get();
-//	    tut.setCoursename(updatedTut.getCoursename());
-//	    tut.setDuration(updatedTut.getDuration());
-//		  tut.setStartdate(updatedTut.getStartdate());
-//		  tut.setEnddate(updatedTut.getEnddate());
-//		  tut.setCoursefee(updatedTut.getCoursefee());
-//	    
-//	    crepo.save(tut);
-//
-//	    Course checkTut = crepo.findById(tut2.getId()).get();
-//	    
-//	    assertThat(checkTut.getId()).isEqualTo(tut2.getId());
-//	    assertThat(checkTut.getCoursename()).isEqualTo(updatedTut.getCoursename());
-//	    assertThat(checkTut.getDuration()).isEqualTo(updatedTut.getDuration());
-//	    assertThat(checkTut.getStartdate()).isEqualTo(updatedTut.getStartdate());
-//	    assertThat(checkTut.getEnddate()).isEqualTo(updatedTut.getEnddate());
-//	    assertThat(checkTut.getCoursefee()).isEqualTo(updatedTut.getCoursefee());
-//	 
-//	  }
-//	 
+
 }
 	
 	
