@@ -120,7 +120,17 @@ class UniversityCourseApplicationTests {
 
 			assertThat(course).isEmpty();
 		}
-	  
+	  @Test
+	    public void testDeleteCourse() throws Exception {
+		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			String dateInString1 = "2022-01-05 00:12:00";
+			String dateInString2 = "2022-01-15 00:12:00";
+			Date startdate = sdf.parse(dateInString2);
+			Date enddate = sdf.parse(dateInString1);
+	        Course course = new Course(21L, "chemical", "30 minutes", startdate, enddate, "800");
+	        crepo.save(course);
+	        crepo.delete(course);
+	    }
 
 }
 	
