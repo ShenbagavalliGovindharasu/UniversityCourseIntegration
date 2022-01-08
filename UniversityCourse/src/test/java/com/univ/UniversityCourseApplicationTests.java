@@ -1,14 +1,5 @@
 package com.univ;
-/*
- * import org.junit.jupiter.api.Test; import
- * org.springframework.boot.test.context.SpringBootTest;
- * 
- * @SpringBootTest class UniversityCourseApplicationTests {
- * 
- * @Test void contextLoads() { }
- * 
- * }
- */
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -51,6 +42,11 @@ class UniversityCourseApplicationTests {
 	
 	@MockBean
 	StaffRepository srepo;
+	
+	 
+  	@MockBean
+    	ApplicantDAO srepo;
+    
 	
 	@Test
 	void contextLoads() {
@@ -177,7 +173,7 @@ class UniversityCourseApplicationTests {
 	}
 	
 	@Test
-    public void testDeleteStaff() {
+      public void testDeleteStaff() {
         Staff staff = new Staff(303L, "aishu", "MECH");
         srepo.save(staff);
         srepo.delete(staff);
@@ -185,7 +181,7 @@ class UniversityCourseApplicationTests {
 	
 
 	  
-=======
+
 	  @Test
 	    public void testDeleteCourse() throws Exception {
 		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -197,6 +193,32 @@ class UniversityCourseApplicationTests {
 	        crepo.save(course);
 	        crepo.delete(course);
 	    }
+	
+	//view all applicant
+    @Test
+    public void getAllApplicant() {
+        List<Applicant> app=new ArrayList();
+        app.add(new Applicant());
+        given(srepo.findAll()).willReturn(app);
+        List<Applicant> expected = (List<Applicant>) srepo.findAll();
+        assertEquals(expected, app);
+        verify(srepo).findAll();
+        
+    }
+    
+    @Test
+    public void getAllApplicantById() {
+        List<Applicant> app=new ArrayList();
+        app.add(new Applicant());
+        given(srepo.findAll()).willReturn(app);
+        List<Applicant> expected = (List<Applicant>) srepo.findAll();
+        assertEquals(expected, app);
+        verify(srepo).findAll();
+        
+        
+    }
+	
+	
 
 }
 	
